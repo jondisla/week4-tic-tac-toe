@@ -1,3 +1,6 @@
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
 def printBoard(board):
     # TO DO #################################################################
     # Write code in this function that prints the game board.               #
@@ -6,40 +9,25 @@ def printBoard(board):
     #                                                                       #
     # Hint: you can follow the same process that was done in the textbook.  #
     #########################################################################
-    theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
-            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
-            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
 
-    def printBoard(board):
+    
         print (board['top-L'],'|', board['top-M'],'|',board['top-R'])
         print ('--|---|--')
         print (board['mid-L'],'|', board['mid-M'],'|',board['mid-R'])
         print ('--|---|--')
         print (board['low-L'],'|', board['low-M'],'|',board['low-R'])
-
-    turn = 'X'
-    for i in range(9):
-        printBoard(theBoard)
-        print('Next ' + turn + '. Where would you like to move?')
-        move = input()
-        theBoard[move] = turn
-        if turn == 'X':
-            turn = 'O'
-        else:
-            turn = 'X'
     
-    printBoard(theBoard)
+printBoard(theBoard)
     
-    def checkWinner(board, player):    
-        print('Checking if ' + player + ' is a winner...')
-        
-        return((board['top-L'] == player and board['top-M'] == player and board['top-R'] == player
-        or board['mid-L'] == player and board['mid-M'] == player and board['mid-R'] == player
-        or board['low-L'] == player and board['low-M'] == player and board['low-R'] == player
-        or board['low-L'] == player and board['mid-M'] == player and board['top-R'] == player
-        or board['top-L'] == player and board['mid-M'] == player and board['low-R'] == player
-        or board['top-L'] == player and board['mid-L'] == player and board['low-L'] == player
-        or board['top-R'] == player and board['mid-R'] == player and board['low-R'] == player))
+def checkWinner(board, player):
+    print('Checking if ' + player + ' is a winner...')
+    return((board['top-L'] == player and board['top-M'] == player and board['top-R'] == player)
+        or (board['mid-L'] == player and board['mid-M'] == player and board['mid-R'] == player)
+        or (board['low-L'] == player and board['low-M'] == player and board['low-R'] == player)
+        or (board['low-L'] == player and board['mid-M'] == player and board['top-R'] == player)
+        or (board['top-L'] == player and board['mid-M'] == player and board['low-R'] == player)
+        or (board['top-L'] == player and board['mid-L'] == player and board['low-L'] == player)
+        or (board['top-R'] == player and board['mid-R'] == player and board['low-R'] == player))
     
     # TO DO #################################################################
     # Write code in this function that checks the tic-tac-toe board          #
@@ -64,10 +52,12 @@ def startGame(startingPlayer, board):
         ##prints the intstructions and uses the 'turn' for the letter
         move = input()   #gets the keyboard input
         board[move] = turn
-        if( checkWinner(board, 'X') ): #loop to continously check on the checkwinner function
+        if( checkWinner(board, 'X') ):
+            #loop to continously check on the checkwinner function
             print('X wins!')
             break
-        elif ( checkWinner(board, 'O') ): #prints 'o' if the condition of checkwinner is met
+        elif ( checkWinner(board, 'O') ):
+            #prints 'o' if the condition of checkwinner is met
             print('O wins!')
             break
     
