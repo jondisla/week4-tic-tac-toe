@@ -6,9 +6,40 @@ def printBoard(board):
     #                                                                       #
     # Hint: you can follow the same process that was done in the textbook.  #
     #########################################################################
+    theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
 
-def checkWinner(board, player):    
-    print('Checking if ' + player + ' is a winner...')
+    def printBoard(board):
+        print (board['top-L'],'|', board['top-M'],'|',board['top-R'])
+        print ('--|---|--')
+        print (board['mid-L'],'|', board['mid-M'],'|',board['mid-R'])
+        print ('--|---|--')
+        print (board['low-L'],'|', board['low-M'],'|',board['low-R'])
+
+    turn = 'X'
+    for i in range(9):
+        printBoard(theBoard)
+        print('Next ' + turn + '. Where would you like to move?')
+        move = input()
+        theBoard[move] = turn
+        if turn == 'X':
+            turn = 'O'
+        else:
+            turn = 'X'
+    
+    printBoard(theBoard)
+    
+    def checkWinner(board, player):    
+        print('Checking if ' + player + ' is a winner...')
+        
+        return((board['top-L'] == player and board['top-M'] == player and board['top-R'] == player
+        or board['mid-L'] == player and board['mid-M'] == player and board['mid-R'] == player
+        or board['low-L'] == player and board['low-M'] == player and board['low-R'] == player
+        or board['low-L'] == player and board['mid-M'] == player and board['top-R'] == player
+        or board['top-L'] == player and board['mid-M'] == player and board['low-R'] == player
+        or board['top-L'] == player and board['mid-L'] == player and board['low-L'] == player
+        or board['top-R'] == player and board['mid-R'] == player and board['low-R'] == player))
     
     # TO DO #################################################################
     # Write code in this function that checks the tic-tac-toe board          #
@@ -18,7 +49,7 @@ def checkWinner(board, player):
     # variable 'player' has won. The function should return False           #
     # if the player in the variable 'player' has not won.                   #
     #########################################################################
-    
+
     
 def startGame(startingPlayer, board):
     # TO DO #################################################################
