@@ -60,8 +60,8 @@ def startGame(startingPlayer, board):
     turn = startingPlayer #creates new value assigned to turn
     for i in range(9): #the range here is 9 for every square on the board
         printBoard(board)#prints the board on the screen
-        print('Turn for ' + turn + '. Move on which space?')#prints the intstructions and
-        													#uses the 'turn' for the letter
+        print('Turn for ' + turn + '. Move on which space?')
+        ##prints the intstructions and uses the 'turn' for the letter
         move = input()   #gets the keyboard input
         board[move] = turn
         if( checkWinner(board, 'X') ): #loop to continously check on the checkwinner function
