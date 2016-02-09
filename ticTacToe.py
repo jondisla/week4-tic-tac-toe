@@ -21,13 +21,14 @@ printBoard(theBoard)
     
 def checkWinner(board, player):
     print('Checking if ' + player + ' is a winner...')
-    return((board['top-L'] == player and board['top-M'] == player and board['top-R'] == player)
-        or (board['mid-L'] == player and board['mid-M'] == player and board['mid-R'] == player)
-        or (board['low-L'] == player and board['low-M'] == player and board['low-R'] == player)
-        or (board['low-L'] == player and board['mid-M'] == player and board['top-R'] == player)
-        or (board['top-L'] == player and board['mid-M'] == player and board['low-R'] == player)
-        or (board['top-L'] == player and board['mid-L'] == player and board['low-L'] == player)
-        or (board['top-R'] == player and board['mid-R'] == player and board['low-R'] == player))
+    return((board['top-L'] == player and board['top-M'] == player and board['top-R'] == player)#top row
+        or (board['mid-L'] == player and board['mid-M'] == player and board['mid-R'] == player)#middle row
+        or (board['low-L'] == player and board['low-M'] == player and board['low-R'] == player)#bottom row
+        or (board['low-L'] == player and board['mid-M'] == player and board['top-R'] == player)#cross
+        or (board['top-L'] == player and board['mid-M'] == player and board['low-R'] == player)#cross
+        or (board['top-L'] == player and board['mid-L'] == player and board['low-L'] == player)#left 
+        or (board['top-R'] == player and board['mid-R'] == player and board['low-R'] == player)#right
+        or (board['top-M'] == player and board['mid-M'] == player and board['low-M'] == player))#middle
     
     # TO DO #################################################################
     # Write code in this function that checks the tic-tac-toe board          #
