@@ -57,16 +57,17 @@ def startGame(startingPlayer, board):
     # is happening. You do not need to modify any of the Python code        #
     #########################################################################
 
-    turn = startingPlayer
-    for i in range(9):
-        printBoard(board)
-        print('Turn for ' + turn + '. Move on which space?')
-        move = input()
+    turn = startingPlayer #creates new value assigned to turn
+    for i in range(9): #the range here is 9 for every square on the board
+        printBoard(board)#prints the board on the screen
+        print('Turn for ' + turn + '. Move on which space?')#prints the intstructions and
+        													#uses the 'turn' for the letter
+        move = input()   #gets the keyboard input
         board[move] = turn
-        if( checkWinner(board, 'X') ):
+        if( checkWinner(board, 'X') ): #loop to continously check on the checkwinner function
             print('X wins!')
             break
-        elif ( checkWinner(board, 'O') ):
+        elif ( checkWinner(board, 'O') ): #prints 'o' if the condition of checkwinner is met
             print('O wins!')
             break
     
